@@ -1,33 +1,32 @@
 # SortIQ
-# ♻️ SortIQ.ai: AI-Powered E-Waste Pre-Sorting System
+# ♻️ SORTiQ: AI-based Value Component Recovery
 
-![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-Computer_Vision-yellow)
-![MicroPython](https://img.shields.io/badge/MicroPython-RP2040-red)
-![Hardware](https://img.shields.io/badge/Hardware-In--The--Loop-brightgreen)
+SORTiQ is an intelligent pre-sorting system designed to close the value-recovery gap in e-waste recycling. By moving from destructive bulk shredding to a targeted, component-level depopulation strategy, SORTiQ improves the purity and recovery of Critical Raw Materials (CRMs).
 
-SortIQ.ai is a hardware-in-the-loop proof of concept designed to intelligently automate the pre-sorting of electronic waste. It uses edge AI (YOLOv8) combined with physical industrial sensors to identify, evaluate, and physically divert valuable Critical Raw Materials (CRMs) and hazardous components on a moving conveyor belt.
+## 🚀 Project Overview
+* **Aim:** Automated detection and recovery of high-value components (PCBs, magnets, RAM) from e-waste streams for targeted recycling or direct reuse.
+* **Research Focus:** Investigating the systems-thinking approach to e-waste recovery, specifically managing data uncertainty propagation, industrial safety requirements, and economic trade-offs in automated sorting pipelines.
 
-## 💡 The Opportunity: Intelligent Pre-Sorting
-The e-waste recycling industry currently relies heavily on bulk shredding, a highly efficient method for processing large volumes of end-of-life electronics. However, bulk shredding drops CRM purity. SortIQ.ai introduces an automated "pre-sorting" layer to the ecosystem. By utilizing sensor fusion to detect and physically divert CRM-rich components (such as Gold-bearing PCBs and Neodymium permanent magnets) *before* they enter the bulk shredder, facilities can maximize purity and recovery rates. 
+## 🏗️ Technical Architecture
+### Vision & Inference
+* **Detection:** Hybrid model architecture utilizing **RT-DETRv2** for high-precision component identification, complemented by **YOLOv8** for general object flow.
+* **Optimization:** Deployed via **ONNX inference** to ensure the latency requirements of high-speed sorting.
+* **Tracking:** Object tracking implemented using **Kalman Filters** and the **Hungarian Algorithm** for robust component path prediction.
 
-Furthermore, SortIQ acts as a safety gate, instantly blocking the belt if Li-Ion batteries or power banks are detected to prevent facility fires.
+### Hardware & Sensor Fusion
+* **Sensing Layer:** Integrated magnetometer arrays for flux density measurement, combined with object detection sensors for high-fidelity component validation.
+* **Control Stack:** Coordinated multi-controller setup leveraging **Raspberry Pi Pico, ESP32, and Arduino**.
+* **Observability:** Full-stack monitoring via **Grafana and InfluxDB**, with the environment containerized using **Docker** for reproducible deployment.
 
-## 🏗️ System Architecture
-SortIQ utilizes a distributed hardware architecture to isolate high-power motor noise from sensitive logic controllers:
+## 🔧 Engineering Post-Mortem: Real-World Lessons
+The transition from PoC to an industrial-ready system required overcoming significant hardware-software integration hurdles:
+* **EMI & Brownouts:** High-current actuators caused electrical noise, resulting in intermittent serial communication drops. This was mitigated by implementing a "Lazy Servo" PWM protocol to isolate signal pins during idle states.
+* **Communication Resilience:** Persistent I2C handshake errors during magnetometer polling were resolved by implementing robust, auto-resetting communication wrappers.
+* **Signal Fragmentation:** Asynchronous serial data streams were unified through a full-buffer-drain ingestion algorithm to ensure zero-loss synchronization between the IO layer and the vision brain.
 
-1. **The Brain (Edge PC):** Runs the YOLOv8 vision pipeline, aggregates sensor data, and dispatches actuation commands based on a complex decision matrix.
-2. **The IO Controller (Raspberry Pi Pico):** Runs MicroPython to poll an MLX90393 Magnetometer, IR object triggers, and Inductive sensors. Controls the Diverter Servo.
-3. **The Conveyor Drive (Arduino Nano):** Operates the NEMA/stepper motor on an isolated power and logic circuit to prevent ground loops.
-
-## 📂 Documentation & Media
-* [📽️ Watch the SortIQ MVP Demo Video](./media/sortiq_demo.mp4) *(Update link when uploaded)*
-* [📊 Read the SortIQ Pitch Deck](./media/pitch_deck.pdf) *(Update link when uploaded)*
-* [⚙️ System Architecture & Sensor Fusion](./docs/architecture.md)
-* [🔧 Engineering Post-Mortem: Solving EMI & Brownouts](./docs/engineering_post_mortem.md)
-
-## 👥 The Team
-SortIQ.ai is built by a multidisciplinary engineering team combining software, systems design, and mechanical expertise:
-* **Binto Anto:** Founder | Computer Vision, Machine Learning, and Systems Engineering
-* **Amalkrishna Manikkath Jayan:** Process Simulation and Optimization Lead
-* **Risal Kolarikandy:** Senior Mechanical Design Engineer | R&D Design and Manufacturing
+## 🔬 Research Areas & Future Directions
+SORTiQ is currently evolving into a testbed for precision depopulation research:
+* **Uncertainty Propagation:** Modeling how detection confidence drops—due to occlusion or perspective changes—impacts final sorting accuracy.
+* **Traceability:** Development of a framework for Digital Product Passports using QR/OCR to ensure end-to-end component visibility.
+* **Economic/Regulatory Alignment:** Evaluating the complex interdependencies between sorting throughput, material purity, and compliance with the EU Critical Raw Materials Act and Right-to-Repair Directives. 
+* **Systems Development Approach:** Analyzing the necessity of AI and automation by mapping the trade-offs between CapEx, OpEx, and the potential revenue uplift from high-purity CRM recovery. This research treats the recycling plant as an integrated system, where intelligent automation is the required catalyst to convert "trash into cash" while meeting stringent regulatory sustainability mandates.
