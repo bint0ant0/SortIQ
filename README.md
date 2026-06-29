@@ -1,23 +1,23 @@
 # SortIQ
 # ♻️ SORTiQ: AI-based Value Component Recovery
 
-SORTiQ is an intelligent pre-sorting system designed to close the value-recovery gap in e-waste recycling. By moving from destructive bulk shredding to a targeted, component-level depopulation strategy, SORTiQ improves the purity and recovery of Critical Raw Materials (CRMs) while ensuring compliance with modern regulatory mandates.
+SORTiQ is intended to create an intelligent pre-sorting system designed to close the value-recovery gap in e-waste recycling. By moving from destructive bulk shredding to a targeted, component-level depopulation strategy, SORTiQ can improve purity and recovery of Critical Raw Materials (CRMs) while ensuring compliance with modern regulatory mandates.
 
 ## 🚀 Project Overview
 * **Aim:** Automated detection and recovery of high-value components (PCBs, magnets, RAM) from e-waste streams for targeted recycling or direct reuse.
 * **Research Focus:** Investigating the systems-thinking approach to e-waste recovery, specifically managing data uncertainty propagation, industrial safety requirements, and economic trade-offs in automated sorting pipelines.
 
 ## 🏗️ Technical Architecture
-SORTiQ utilizes a hierarchical, two-model AI architecture designed to balance industrial throughput with high-precision component identification.
+SORTiQ utilizes a hierarchical, multi-model AI architecture designed to balance industrial throughput with high-precision component identification.
 
-### The Two-Model Inference Pipeline
+### The Two-Model created by improvising one to another
 * **Model 1: YOLOv8 (Detection & Flow Control):**
     * **Role:** Primary object detection and tracking layer.
     * **Function:** Processes the real-time conveyor stream to localize objects, classify general component types, and manage object flow.
     * **Objective:** Optimized for high-throughput inference to ensure no component passes undetected at industrial speeds.
 * **Model 2: RT-DETRv2 (Precision Depopulation):**
     * **Role:** High-fidelity identification of CRM-rich components (e.g., ICs, specific chipsets, connectors).
-    * **Setup:** Deployed via **ONNX Runtime** to minimize inference latency.
+    * **Setup:** Deployed via **ONNX Runtime** to minimize inference latency. 
     * **Function:** Performs precision identification and structural analysis of high-value components, integrated with an OCR pipeline for automated chip marking verification.
 
 ### Tracking & Sensor Fusion
