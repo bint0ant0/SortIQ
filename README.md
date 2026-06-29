@@ -32,6 +32,5 @@ The transition from PoC to an industrial-ready system required overcoming signif
 
 ## 🔬 Research Areas & Future Directions
 SORTiQ is currently evolving into a testbed for precision depopulation research:
-* **Uncertainty Propagation:** Modeling how detection confidence drops—due to occlusion or perspective changes—impacts final sorting accuracy.
-* **Traceability:** Development of a framework for Digital Product Passports using QR/OCR to ensure end-to-end component visibility.
-* **Economic/Regulatory Alignment:** Analyzing the necessity of AI and automation by mapping the trade-offs between CapEx, OpEx, and the potential revenue uplift from high-purity CRM recovery. This research treats the recycling plant as an integrated system, where intelligent automation is the required catalyst to convert "trash into cash" while meeting stringent regulatory sustainability mandates, such as the EU Critical Raw Materials Act.
+* **Uncertainty Propagation:
+* **Economic/Regulatory Alignment:
