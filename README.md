@@ -1,7 +1,7 @@
 # SortIQ
 # ♻️ SORTiQ: AI-based Value Component Recovery
 
-SORTiQ is intended to create an intelligent pre-sorting system designed to close the value-recovery gap in e-waste recycling. By moving from destructive bulk shredding to a targeted, component-level depopulation strategy, SORTiQ can improve purity and recovery of Critical Raw Materials (CRMs) while ensuring compliance with modern regulatory mandates.
+SORTiQ  (PoC) is intended to create an intelligent pre-sorting system designed to close the value-recovery gap in e-waste recycling. By moving from destructive bulk shredding to a targeted, component-level depopulation strategy, SORTiQ can improve purity and recovery of Critical Raw Materials (CRMs) while ensuring compliance with modern regulatory mandates.
 
 ## 🚀 Project Overview
 * **Aim:** Automated detection and recovery of high-value components (PCBs, magnets, RAM) from e-waste streams for targeted recycling or direct reuse.
