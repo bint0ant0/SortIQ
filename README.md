@@ -32,6 +32,6 @@ The transition from PoC to an industrial-ready system required overcoming signif
 
 ## 🔬 Research Areas & Future Directions
 SORTiQ is currently evolving into a testbed for precision depopulation research:
-* **Uncertainty Propagation:
-* **Economic/Regulatory Alignment:
+* **Uncertainty Propagation
+* **Economic/Regulatory Alignment
 ***Vedios and media files : https://drive.google.com/drive/folders/1tUEhTr9-pAU9AqMK803KcYk5L_FQsmRd?usp=sharing
