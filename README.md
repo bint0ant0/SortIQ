@@ -1,1 +1,1 @@
-# SortIQ-EWaste-Sorter
+# SortIQ
