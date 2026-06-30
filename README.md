@@ -35,4 +35,4 @@ SORTiQ is currently evolving into a testbed for precision depopulation research:
 * **Uncertainty Propagation
 * **Economic/Regulatory Alignment
 * ***Vedios and media files : https://drive.google.com/drive/folders/1tUEhTr9-pAU9AqMK803KcYk5L_FQsmRd?usp=sharing
-* Disclaimer:  the weights and files are only being uploaded. and codes inside python files are from open source documents and some are created using the assistance of LLM assiatnce like gemini,antigravity, claude etc
+* Disclaimer:  the weights and files are only being uploaded. and codes inside python files are from open source documents and some are created using the assistance of LLMs like gemini,antigravity, claude etc
